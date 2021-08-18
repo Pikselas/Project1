@@ -32,9 +32,9 @@ void ks_InpChecker::PerformAction(unsigned int code) const noexcept
 void ks_InpChecker::Start() const
 {
 	std::thread([this] {
-		while (true)
+		while (IsAlive)
 		{
-			PerformAction(_getch());
+			PerformAction(GetInput());
 		}
 		}).detach();
 }
