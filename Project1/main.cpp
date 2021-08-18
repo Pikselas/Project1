@@ -1,8 +1,4 @@
 #include<iostream>
-#include<vector>
-#include<algorithm>
-#include<random>
-#include<functional>
 #include"ks_Watch.h"
 int main()
 {
