@@ -19,7 +19,7 @@ public:
 	ks_InpChecker(ks_Watch& wtc);
 	~ks_InpChecker();
 	void Start() const;
-private:
+public:
 	int GetInput() const noexcept;
 	void PerformAction(unsigned int code) const noexcept;
 };

@@ -1,9 +1,11 @@
 #include<iostream>
 #include"ks_Watch.h"
+#include"ks_InpChecker.h"
 int main()
 {
 	ks_Watch kw;
-	kw.Start();
+	ks_InpChecker kin ( kw );
+	kin.Start();
 	while (true)
 	{
 		std::cout << kw.GetTimeString();
