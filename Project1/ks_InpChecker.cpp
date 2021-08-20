@@ -1,5 +1,5 @@
 #include"ks_InpChecker.h"
-ks_InpChecker::ks_InpChecker(ks_Watch& wtc) : watch(wtc) , IsAlive(true) {}
+ks_InpChecker::ks_InpChecker(ks_Watch& wtc) : watch(wtc),IsAlive(false) {}
 ks_InpChecker::~ks_InpChecker()
 {
 	
@@ -29,12 +29,18 @@ void ks_InpChecker::PerformAction(unsigned int code) const noexcept
 		break;
 	}
 }
-void ks_InpChecker::Start() const
+void ks_InpChecker::Start()
 {
+	IsAlive = true;
 	std::thread([this] {
 		while (IsAlive)
 		{
 			PerformAction(GetInput());
 		}
 		}).detach();
+}
+
+void ks_InpChecker::Stop()
+{
+	IsAlive = false;
 }
